@@ -1,3 +1,4 @@
+'use strict';
 console.log('js is linked');
 alert('Hello! Let\'s play a guessing game to get to know me better. Click OK and let\'s get started!');
 
