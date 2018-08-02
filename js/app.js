@@ -79,12 +79,12 @@ var validUserResponses = [validUserResponsesQ1, validUserResponsesQ2, validUserR
 var answers = [];
 
 //Function: Valid Responses
-function isUserResponseValid(){
-    if (answers[i].includesvalidUserReponses[i]){
+function isUserResponseValid(userResponse){
+    if (validUserResponses[i].includes(userResponse)){
         return isValid = true;
     }else{
-       return isValid = false;
-    }
+        return isValid = false;
+}
 }
 
 //Process: Questions 1-5
@@ -94,7 +94,7 @@ for(var i = 0; i < 5; i++){
     answers[i] = prompt(questions[i]).toLowerCase();
     isUserResponseValid(answers[i]);
 
-    if (isValid === true){ //(answers[i] === 'yes' ||answers[i] === 'no' || answers[i] === 'y' || answers[i] === 'n'){ //ensures that only yes/no, y/n answers are provided
+    if (isValid){
         console.log('User\'s response to Q' + (i + 1) + ': ' + answers[i]);
         if (answers[i] === 'yes' || answers[i] === 'y'){
             alert(responses[i][0]);
@@ -103,10 +103,10 @@ for(var i = 0; i < 5; i++){
             alert(responses[i][1]);
             answers[i] = 1;
         }
-         if (answers[i] === correctAnswers[i]){
+            if (answers[i] === correctAnswers[i]){
             points = points + 1;
         //Console.log('Current points earned: ' + points);
-         }
+            }
     }else{
         alert('Whoops! Please enter \'Yes\', \'No\', \'Y\', or \'N\''); 
         i = i - 1;
@@ -159,7 +159,7 @@ do{
     if (k === attemptsAllowedQ7){
             alert(responses[6][1]);
     } 
-}while (answers[6] !== correctAnswers[6][0] && answers[6] !== correctAnswers[6][1] && answers[6] !== correctAnswers[6][2] && answers[6] !== correctAnswers[6][3] && k < attemptsAllowedQ7);
+}while (!correctAnswers[6].includes(answers[6])  && k < attemptsAllowedQ7);
 
 //Process: Final Score
 points = points + 1; //gives the user a point for Q5, the trick question
