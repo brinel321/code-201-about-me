@@ -9,7 +9,8 @@ var detailsQ1 = 'I have a younger brother Eric.  He and I grew up battling each 
 var yesQ1 =  'Actually, ' + detailsQ1;
 var noQ1 =  'Great guess! ' + detailsQ1;
 var response1 = [yesQ1, noQ1];
-var correctAnswerQ1 = 1 //no
+var validUserResponsesQ1 = ['yes', 'y', 'no', 'n'];
+var correctAnswerQ1 = 1; //no
 
 //Question 2, my age
 var questionQ2 = 'Next up: Am I in my 60\'s? [Yes or No]';
@@ -17,7 +18,8 @@ var detailsQ2 = 'I still have two and a half decades before I hit my golden year
 var yesQ2 = 'Dang I better start breaking out that Botox! ' + detailsQ2;
 var noQ2 =  'Good answer, ' + detailsQ2;
 var response2 = [yesQ2, noQ2];
-var correctAnswerQ2 = 1 //no
+var validUserResponsesQ2 = ['yes', 'y', 'no', 'n'];
+var correctAnswerQ2 = 1; //no
 
 //Question 3, basketball
 var questionQ3 = 'Ok let\'s talk sports! Do I play basketball [Yes or No]';
@@ -25,7 +27,8 @@ var detailsQ3 = 'I still play but these legs have lost some bounce and half a st
 var yesQ3 = detailsQ3;
 var noQ3 = detailsQ3;
 var response3 = [yesQ3, noQ3];
-var correctAnswerQ3 = 0 //yes
+var validUserResponsesQ3 = ['yes', 'y', 'no', 'n'];
+var correctAnswerQ3 = 0; //yes
 
 //Question 4, Army
 var questionQ4 = 'Have I ever served in the Armed Forces? [Yes or No]';
@@ -33,7 +36,8 @@ var detailsQ4 = 'I\'ve been a Combat Engineer in the U.S. Army Reserves for the 
 var yesQ4 =  'Good guess! ' + detailsQ4;
 var noQ4 = 'Actually I have. ' + detailsQ4;
 var response4 = [yesQ4, noQ4];
-var correctAnswerQ4 = 0 //yes
+var validUserResponsesQ4 = ['yes', 'y', 'no', 'n'];
+var correctAnswerQ4 = 0; //yes
 
 //Question 5, dog
 var questionQ5 = 'Here we go, now a tough one: Is my dog\'s name Otis? [Yes or No]';
@@ -41,7 +45,8 @@ var detailsQ5 = 'Trick question! I don\'t have a dog but my family had two dogs 
 var yesQ5 = detailsQ5;
 var noQ5 = detailsQ5;
 var response5 = [yesQ5, noQ5];
-var correctAnswerQ5 = 3 //trick question, they'll get a point either way
+var validUserResponsesQ5 = ['yes', 'y', 'no', 'n'];
+var correctAnswerQ5 = 3; //trick question, they'll get a point either way
 
 //Question 6, favorite #
 var questionQ6 = 'Ok, let\'s see if you can guess my favorite number! Don\'t worry if you can\'t get it on the first try, you\'ll have four chances :).';
@@ -49,7 +54,7 @@ var detailsQ6 = 'That was my playing number throughout my AAU and high school ba
 var yesQ6 = 'Nice Job! ' + detailsQ6;
 var noQ6 = 'Oh well this was a tough one, the answer is 33! ' + detailsQ6;
 var response6 = [yesQ6, noQ6];
-var correctAnswerQ6 = '33';
+var correctAnswerQ6 = 33;
 
 //Question 7, cities lived in
 var questionQ7 = 'Last one! I\'ve lived in four cities outside the PNW, can you name one of them? I\'ll give you six guesses this time!';
@@ -64,21 +69,34 @@ var points = 0;
 var score0to2 = 'Better luck next time!'
 var score3to5 = 'Wait a second, are you sure we\'re not already friends?'
 var score6to7 = 'OK, you\'re officially entering stalker status!!'
-var responseScore = [score0to2, score0to2, score0to2, score3to5, score3to5, score3to5, score6to7, score6to7] 
+var responseScore = [score0to2, score0to2, score0to2, score3to5, score3to5, score3to5, score6to7, score6to7]; 
 
 //Global Arrays
 var questions = [questionQ1, questionQ2, questionQ3, questionQ4, questionQ5, questionQ6, questionQ7];
 var responses = [response1, response2, response3, response4, response5, response6, response7, responseScore];
-var correctAnswers = [correctAnswerQ1, correctAnswerQ2, correctAnswerQ3, correctAnswerQ4, correctAnswerQ5, correctAnswerQ6, correctAnswerQ7]
+var correctAnswers = [correctAnswerQ1, correctAnswerQ2, correctAnswerQ3, correctAnswerQ4, correctAnswerQ5, correctAnswerQ6, correctAnswerQ7];
+var validUserResponses = [validUserResponsesQ1, validUserResponsesQ2, validUserResponsesQ3, validUserResponsesQ4, validUserResponsesQ5];
 var answers = [];
 
+//Function: Valid Responses
+function isUserResponseValid(){
+    if (answers[i].includes.validUserReponses[i]){
+        return isValid = true;
+    }else{
+       return isValid = false;
+    }
+}
+
 //Process: Questions 1-5
+var isValid = false; 
+
 for(var i = 0; i < 5; i++){
     answers[i] = prompt(questions[i]).toLowerCase();
+    isUserResponseValid(answers[i]);
 
-    if (answers[i] === 'yes' ||answers[i] === 'no' || answers[i] === 'y' || answers[i] === 'n'){ //ensures that only yes/no, y/n answers are provided
+    if (isValid === true){ //(answers[i] === 'yes' ||answers[i] === 'no' || answers[i] === 'y' || answers[i] === 'n'){ //ensures that only yes/no, y/n answers are provided
         console.log('User\'s response to Q' + (i + 1) + ': ' + answers[i]);
-        if (answers[i] == 'yes' || answers[i] == 'y'){
+        if (answers[i] === 'yes' || answers[i] === 'y'){
             alert(responses[i][0]);
             answers[i] = 0;
         }else{
@@ -101,7 +119,7 @@ var attemptsAllowedQ6 = 4
 var messageQ6 = questions[5]
 
 do{
-    answers[5] = prompt(messageQ6);
+    answers[5] = parseInt(prompt(messageQ6));
     j++;
     console.log('User\'s response to Q6, attempt ' + (j) + ': ' + answers[5]);
 
@@ -131,7 +149,7 @@ do{
     k++;
     console.log('User\'s response to Q7, attempt ' + (k) + ': ' + answers[6]);
 
-    if (answers[6] === correctAnswers[6][0] || answers[6] === correctAnswers[6][1] || answers[6] === correctAnswers[6][2] || answers[6] === correctAnswers[6][3]){
+    if (correctAnswers[6].includes(answers[6])){
         alert(responses[6][0]);
         points = points + 1;
         break;
