@@ -80,7 +80,7 @@ var answers = [];
 
 //Function: Valid Responses
 function isUserResponseValid(){
-    if (answers[i].includes.validUserReponses[i]){
+    if (answers[i].includesvalidUserReponses[i]){
         return isValid = true;
     }else{
        return isValid = false;
