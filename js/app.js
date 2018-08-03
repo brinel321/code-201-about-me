@@ -83,9 +83,11 @@ function isUserResponseValid(userResponse){
     if (validUserResponses[i].includes(userResponse)){
         return isValid = true;
     }else{
+        alert('Whoops! Please enter \'Yes\', \'No\', \'Y\', or \'N\''); 
+        i = i - 1;
         return isValid = false;
-}
-}
+        }   
+    }
 
 //Process: Questions 1-5
 var isValid = false; 
@@ -107,10 +109,7 @@ for(var i = 0; i < 5; i++){
             points = points + 1;
         //Console.log('Current points earned: ' + points);
             }
-    }else{
-        alert('Whoops! Please enter \'Yes\', \'No\', \'Y\', or \'N\''); 
-        i = i - 1;
-    }
+        }
 }
 
 //Process: Question 6
