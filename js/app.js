@@ -96,7 +96,7 @@ for(var i = 0; i < 5; i++){
     answers[i] = prompt(questions[i]).toLowerCase();
     isUserResponseValid(answers[i]);
 
-    if (isValid){
+    if (isValid){ //using just isValid is the same as using isValid == true, thanks Carlos!
         console.log('User\'s response to Q' + (i + 1) + ': ' + answers[i]);
         if (answers[i] === 'yes' || answers[i] === 'y'){
             alert(responses[i][0]);
