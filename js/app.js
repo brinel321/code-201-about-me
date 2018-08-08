@@ -66,10 +66,10 @@ var correctAnswerQ7 = ['st. roberts', 'baghdad', 'devil\'s lake', 'ramadi'];
 
 //Final Score
 var points = 0;
-var score0to2 = 'Better luck next time!'
-var score3to5 = 'Wait a second, are you sure we\'re not already friends?'
-var score6to7 = 'OK, you\'re officially entering stalker status!!'
-var responseScore = [score0to2, score0to2, score0to2, score3to5, score3to5, score3to5, score6to7, score6to7]; 
+var score0to2 = 'Better luck next time!';
+var score3to5 = 'Wait a second, are you sure we\'re not already friends?';
+var score6to7 = 'OK, you\'re officially entering stalker status!!';
+var responseScore = [score0to2, score0to2, score0to2, score3to5, score3to5, score3to5, score6to7, score6to7];
 
 //Global Arrays
 var questions = [questionQ1, questionQ2, questionQ3, questionQ4, questionQ5, questionQ6, questionQ7];
@@ -80,17 +80,17 @@ var answers = [];
 
 //Function: Valid Responses
 function isUserResponseValid(userResponse){
-    if (validUserResponses[i].includes(userResponse)){
+if (validUserResponses[i].includes(userResponse)){
         return isValid = true;
     }else{
-        alert('Whoops! Please enter \'Yes\', \'No\', \'Y\', or \'N\''); 
+        alert('Whoops! Please enter \'Yes\', \'No\', \'Y\', or \'N\'');
         i = i - 1;
         return isValid = false;
-        }   
+        }
     }
 
 //Process: Questions 1-5
-var isValid = false; 
+var isValid = false;
 
 for(var i = 0; i < 5; i++){
     answers[i] = prompt(questions[i]).toLowerCase();
@@ -114,8 +114,8 @@ for(var i = 0; i < 5; i++){
 
 //Process: Question 6
 var j = 0;
-var attemptsAllowedQ6 = 4
-var messageQ6 = questions[5]
+var attemptsAllowedQ6 = 4;
+var messageQ6 = questions[5];
 
 do{
     answers[5] = parseInt(prompt(messageQ6));
@@ -140,8 +140,8 @@ do{
 
 //Process: Question 7
 var k = 0;
-var attemptsAllowedQ7 = 6
-var messageQ7 = questions[6]
+var attemptsAllowedQ7 = 6;
+var messageQ7 = questions[6];
 
 do{
     answers[6] = prompt(messageQ7).toLowerCase();
@@ -157,8 +157,8 @@ do{
         }
     if (k === attemptsAllowedQ7){
             alert(responses[6][1]);
-    } 
-}while (!correctAnswers[6].includes(answers[6])  && k < attemptsAllowedQ7);
+    }
+}while (!correctAnswers[6].includes(answers[6]) && k < attemptsAllowedQ7);
 
 //Process: Final Score
 points = points + 1; //gives the user a point for Q5, the trick question
